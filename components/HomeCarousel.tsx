@@ -24,8 +24,12 @@ interface HomeCarouselProps {
 }
 
 export default function HomeCarousel({ candles }: HomeCarouselProps) {
+  function updateCart(id: string) {
+    console.log("🚀 ~ file: homeCarousel.tsx:31 ~ updateCart ~ id:", id);
+  }
+
   return (
-    <section className="flex w-full flex-col items-center justify-between px-6 mt-12">
+    <section className="flex w-full flex-col items-center justify-between px-6">
       <Carousel className="w-full">
         <CarouselContent>
           {candles.map((candle) => {
@@ -50,7 +54,13 @@ export default function HomeCarousel({ candles }: HomeCarouselProps) {
                         </strong>
                         <span className="">Price: ${candle.price}</span>
                       </div>
-                      <FlameIcon />
+
+                      {/* <div
+                        className="z-10"
+                        onClick={() => updateCart(candle.id)}
+                      >
+                        <FlameIcon />
+                      </div> */}
                     </footer>
                   </div>
                 </Link>
